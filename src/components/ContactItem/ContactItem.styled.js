@@ -1,19 +1,12 @@
 import styled from "styled-components";
 import {FaUserAstronaut} from 'react-icons/fa';
 
-export const List = styled.ul`
-display: flex;
-flex-wrap: wrap;
-margin-left: -15px;
-`;
-
 export const Item = styled.li`
 display: flex;
 flex-basis: calc(50% - 15px);
 justify-content: space-between;
 align-items: center;
 margin-left: 15px;
-/* margin-top: 15px; */
 margin-bottom: 15px;
 padding: 15px 15px;
 border: 1px solid rgb(66, 135, 245); 
@@ -65,4 +58,3 @@ export const Button = styled.button`
     border-color: #EE4B2B;
   }
 `;
-
