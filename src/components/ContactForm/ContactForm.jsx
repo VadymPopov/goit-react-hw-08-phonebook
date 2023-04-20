@@ -1,30 +1,19 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Formik, ErrorMessage } from 'formik';
+import {Formik} from 'formik';
 import * as Yup from 'yup';
 import { Notify } from "notiflix";
-import { FormWrapper, InputContainer, Input, ErrorText, Button } from "./ContactForm.styled";
+import { FormWrapper, InputContainer, Input } from "./ContactForm.styled";
+import  Button  from "components/Button";
+import {nameRegExp, phoneRegExp, FormError} from 'utils/formik';
 
 import {useDispatch } from "react-redux";
 import { addContact } from "redux/contacts/operations";
 import { useContacts } from "hooks";
 
-
-const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
-const phoneRegExp = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
-
 const validationSchema = Yup.object().shape({
     name: Yup.string().min(3).matches(nameRegExp,'Enter valid name').required(),
     number: Yup.string().matches(phoneRegExp,'Enter valid number').required(),});
-
-const FormError = ({ name }) => {
-  return (
-    <ErrorMessage
-      name={name}
-      render={message => <ErrorText>{message}</ErrorText>}
-    />
-  );
-};
 
 const ContactForm = ()=> {
   const dispatch = useDispatch();
@@ -64,7 +53,7 @@ const ContactForm = ()=> {
             </div>
           </InputContainer>
 
-          <Button type="submit">Add contact</Button>
+          <Button type={"submit"}>Add contact</Button>
         </FormWrapper>
       </Formik>
     );

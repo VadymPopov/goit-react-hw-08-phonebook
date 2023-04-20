@@ -1,25 +1,20 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import { FormWrapper, InputContainer, Input, ErrorText, Button,ButtonText } from "../ContactForm/ContactForm.styled";
-import { Formik, ErrorMessage } from 'formik';
+import { FormWrapper, InputContainer, Input } from "../ContactForm/ContactForm.styled";
+import  Button  from "components/Button";
+import { ButtonText } from './LoginForm.styled';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {MdLogin} from 'react-icons/md'
+import { FormError } from 'utils/formik';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().min(10).required(),
   password: Yup.string().min(6).required(),
 });
 
-const FormError = ({ name }) => {
-    return (
-      <ErrorMessage
-        name={name}
-        render={message => <ErrorText>{message}</ErrorText>}
-      />
-    );
-};
 
-export const LoginForm = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -58,8 +53,10 @@ export const LoginForm = () => {
             </div>
           </InputContainer>
 
-          <Button type="submit"><ButtonText>Log In <MdLogin/></ButtonText></Button>
+          <Button type={"submit"}><ButtonText>Log In <MdLogin/></ButtonText></Button>
         </FormWrapper>
       </Formik>
   );
 };
+
+export default LoginForm;

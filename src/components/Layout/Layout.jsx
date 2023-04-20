@@ -1,14 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { AppBar } from '../AppBar/AppBar';
+import  AppBar  from '../AppBar';
 import { Suspense } from 'react';
 import { LayoutContainer, Section } from './Layout.styled';
 import { GlobalStyle } from "../GlobalStyles";
 
-export const Layout = ({toggleTheme,isDarkTheme}) => {
+const Layout = () => {
     return (
         <LayoutContainer>
-            <AppBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
+            <AppBar/>
             <main>
               <Section>
                 <Suspense fallback={null}>
@@ -23,3 +23,5 @@ export const Layout = ({toggleTheme,isDarkTheme}) => {
      
     );
   };
+
+  export default Layout;

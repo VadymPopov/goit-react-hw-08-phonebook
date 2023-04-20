@@ -1,31 +1,20 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Formik, ErrorMessage } from 'formik';
+import { Formik} from 'formik';
 import * as Yup from 'yup';
 import { Notify } from "notiflix";
-import { FormWrapper, InputContainer, Input, ErrorText, Button } from "../ContactForm/ContactForm.styled";
+import { FormWrapper, InputContainer, Input } from "../ContactForm/ContactForm.styled";
+import  Button  from "components/Button";
 import {ButtonContainer} from './ModalForm.styled';
+import {nameRegExp, phoneRegExp, FormError} from 'utils/formik'
 
 import {useDispatch } from "react-redux";
 import { editContact } from "redux/contacts/operations";
 import { useContacts } from "hooks";
 
-
-const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
-const phoneRegExp = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
-
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(3).matches(nameRegExp,'Enter valid name').required(),
   number: Yup.string().matches(phoneRegExp,'Enter valid number').required(),});
-
-const FormError = ({ name }) => {
-  return (
-    <ErrorMessage
-      name={name}
-      render={message => <ErrorText>{message}</ErrorText>}
-    />
-  );
-};
 
 const ModalForm = ({contact:{name,id,number},onClose})=> {
   const dispatch = useDispatch();
@@ -80,8 +69,8 @@ const ModalForm = ({contact:{name,id,number},onClose})=> {
           </InputContainer>
 
           <ButtonContainer>
-          <Button type="submit">Save</Button>
-          <Button type="submit" onClick={onClose}>Cancel</Button>
+          <Button type={"submit"}>Save</Button>
+          <Button type={"submit"} onClick={onClose}>Cancel</Button>
           </ButtonContainer>
         </FormWrapper>
       </Formik>

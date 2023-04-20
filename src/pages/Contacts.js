@@ -4,9 +4,10 @@ import { fetchContacts } from "redux/contacts/operations";
 import { selectError, selectIsLoading } from "redux/contacts/selectors";
 
 import { MainTitle, Title } from "../components/Layout/Layout.styled";
-import ContactList from '../components/ContactList/ContactList'
-import ContactForm from "../components/ContactForm/ContactForm";
-import Filter from "../components/Filter/Filter";
+import ContactList from '../components/ContactList'
+import ContactForm from "../components/ContactForm";
+import Filter from "../components/Filter";
+import Spinner from "components/Spinner";
 
  
 
@@ -25,7 +26,8 @@ const Contacts = () => {
           <ContactForm/>
           <Title>Contacts</Title>
           <Filter/>
-          {isLoading && !error && <b>Request in progress...</b>}
+          {isLoading && !error && <Spinner/>}
+         
           <ContactList/>
         </>
     );

@@ -1,4 +1,4 @@
-import { LoginForm } from 'components/LoginForm/LoginForm';
+import  LoginForm  from 'components/LoginForm';
 import { Title } from "./Home.styled";
 
 export default function Login() {

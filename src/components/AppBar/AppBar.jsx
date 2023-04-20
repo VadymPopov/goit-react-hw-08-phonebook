@@ -1,18 +1,20 @@
-import { Navigation } from '../Navigation/Navigation';
-import { UserMenu } from '../UserMenu/UserMenu';
-import { AuthNav } from '../AuthNav/AuthNav';
+import  Navigation  from '../Navigation';
+import  UserMenu  from '../UserMenu';
+import AuthNav  from '../AuthNav';
 import { useAuth } from 'hooks';
 import { Header } from './AppBar.styled';
-import Switch from '../Switch/Switch'
+import Switch from '../Switch'
 
-export const AppBar = ({toggleTheme,isDarkTheme}) => {
+const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
     <Header>
       <Navigation />
-      <Switch toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}></Switch>
+      <Switch></Switch>
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
     </Header>
   );
 };
+
+export default AppBar;

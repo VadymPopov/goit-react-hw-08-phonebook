@@ -4,7 +4,7 @@ import { useAuth } from 'hooks';
 import { UserName, Wrapper, Welcome, Button } from './UserMenu.styled';
 import {MdLogout} from'react-icons/md'
 
-export const UserMenu = () => {
+const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
   const handleLogOut = () => dispatch(logOut());
@@ -16,3 +16,5 @@ export const UserMenu = () => {
     </Wrapper>
   );
 };
+
+export default UserMenu;

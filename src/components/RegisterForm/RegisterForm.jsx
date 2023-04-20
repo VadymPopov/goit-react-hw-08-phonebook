@@ -1,12 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { FormWrapper, InputContainer, Input, ErrorText, Button } from "../ContactForm/ContactForm.styled";
-
-import { Formik, ErrorMessage } from 'formik';
+import { FormWrapper, InputContainer, Input } from "../ContactForm/ContactForm.styled";
+import  Button  from "components/Button";
+import { Formik} from 'formik';
 import * as Yup from 'yup';
-
-const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
-const emailRegExp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+import { FormError, nameRegExp,emailRegExp } from 'utils/formik';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(3).matches(nameRegExp,'Enter valid name').required(),
@@ -14,17 +12,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().min(6).required(),
 });
 
-const FormError = ({ name }) => {
-    return (
-      <ErrorMessage
-        name={name}
-        render={message => <ErrorText>{message}</ErrorText>}
-      />
-    );
-};
-
-
-export const RegisterForm = () => {
+const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -72,8 +60,11 @@ const handleSubmit = (values, actions) => {
             </div>
           </InputContainer>
 
-          <Button type="submit">Register</Button>
+          <Button type={"submit"}>Register</Button>
         </FormWrapper>
       </Formik>
   );
 };
+
+
+export default RegisterForm;

@@ -1,4 +1,4 @@
-import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import  RegisterForm  from 'components/RegisterForm';
 import { Title } from "./Home.styled";
 
 export default function Register() {
