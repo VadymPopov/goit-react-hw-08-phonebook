@@ -13,13 +13,13 @@ export const InputContainer = styled.div`
 export const Input = styled(Field)`
   font-size: 20px;
   padding: 10px 15px;
-  border: 2px solid rgb(4, 196, 248);
+  border: 2px solid ${({theme}) => theme.hover};
   border-radius: 10px;
   outline: none;
 
   :focus {
     border-color: #fff;
-    box-shadow: rgb(42, 153, 159) 0px 0px 5px 2px;
+    box-shadow: ${({theme}) => theme.shadow} 0px 0px 5px 2px;
   }
 `;
 
@@ -35,13 +35,13 @@ export const Button = styled.button`
   font-size: 20px;
   border-radius: 6px;
   border: none;
-  color: #fff;
-  background-color: rgb(66, 135, 245);
+  color: ${({theme}) => theme.body};
+  background-color:  ${({theme}) => theme.main};
   cursor: pointer;
 
   :hover {
-    background-color: rgb(4, 196, 248);
-    box-shadow: rgb(42, 153, 159) 0px 0px 5px 2px;
+    background-color:  ${({theme}) => theme.hover};
+    box-shadow:  ${({theme}) => theme.shadow} 0px 0px 5px 2px;
   }
 `;
 

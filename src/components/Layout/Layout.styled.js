@@ -6,14 +6,14 @@ export const LayoutContainer = styled.div`
 `;
 
 export const MainTitle = styled.h1`
-  color: rgb(66, 135, 245);
+  color: ${({theme}) => theme.main};
   text-transform: uppercase;
   margin-bottom: 20px;
 `;
 
 export const Title = styled.h2`
   text-transform: uppercase;
-  color: rgb(66, 135, 245);
+  color: ${({theme}) => theme.main};
   margin-bottom: 20px;
 `;
 

@@ -5,7 +5,10 @@ import { refreshUser } from "redux/auth/operations";
 import { RestrictedRoute } from "./RestrictedRoute";
 import { PrivateRoute } from "./PrivateRoute";
 import { Routes, Route } from "react-router-dom";
-import { useAuth } from "hooks";
+import { useAuth, useTheme } from "hooks";
+
+import { ThemeProvider} from 'styled-components';
+import { lightTheme, darkTheme } from "utils/theme";
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -15,26 +18,25 @@ const ContactsPage = lazy(() => import('../pages/Contacts'));
 const App = () => {
   const dispatch = useDispatch();
   const {isRefreshing} = useAuth();
+  const theme = useTheme();
 
   useEffect(()=>{
     dispatch(refreshUser())
   },[dispatch]);
 
     return (
-      // !isRefreshing ? (
-      //   <b>Refreshing user...</b>
-      // ) : (
       !isRefreshing &&
-      <Routes>
-        <Route path='/' element={<Layout/>}>
-          <Route index element={<HomePage/>}/>
-          <Route path="/register" element={<RestrictedRoute component={RegisterPage} redirectTo="/contacts"/>}/>
-          <Route path="/login" element={<RestrictedRoute component={LoginPage} redirectTo="/contacts"/>}/>
-          <Route path="/contacts" element={<PrivateRoute component={ContactsPage} redirectTo="/login"/>}/>
-        </Route>
-      </Routes>
+      <ThemeProvider theme={theme ? darkTheme : lightTheme}>
+        <Routes>
+          <Route path='/' element={<Layout/>}>
+            <Route index element={<HomePage/>}/>
+            <Route path="/register" element={<RestrictedRoute component={RegisterPage} redirectTo="/contacts"/>}/>
+            <Route path="/login" element={<RestrictedRoute component={LoginPage} redirectTo="/contacts"/>}/>
+            <Route path="/contacts" element={<PrivateRoute component={ContactsPage} redirectTo="/login"/>}/>
+          </Route>
+        </Routes>
+      </ThemeProvider>
     )
-    // )
   };
 
 export default App; 

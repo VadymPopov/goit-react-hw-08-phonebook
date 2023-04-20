@@ -1,10 +1,9 @@
-import { Title, StartLink,Text } from "./Home.styled";
-import {MdContactPhone} from 'react-icons/md';
+import { Title, StartLink,Text, Icon } from "./Home.styled";
 
 export default function Home() {
     return (
         <>
-          <MdContactPhone  size={144} color="rgb(66, 135, 245)"/>
+        <Icon/>
         <Title>
           Phonebook
         </Title>

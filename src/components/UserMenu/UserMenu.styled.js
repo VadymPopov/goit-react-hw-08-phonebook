@@ -8,28 +8,30 @@ export const Wrapper = styled.div`
 
 export const UserName = styled.p`
  font-weight: 700;
+ color: ${({theme}) => theme.hover};
 `;
 
 export const Welcome = styled.span`
  font-weight: 500;
  margin-right: 5px;
+ color: ${({theme}) => theme.text};
 `;
 
 export const Button = styled.button`
   display: flex;
   align-items: flex-end;
   gap: 5px;
-  background-color: rgb(187, 196, 198 );
+  background-color: rgb(187, 196, 198);
   padding: 5px;
   border: none;
   border-radius: 4px;
-  color: rgb(0, 0, 0);
+  color: ${({theme}) => theme.text};
   cursor: pointer;
 
   :hover, :focus {
-    background-color: rgb(4, 196, 248);
-    box-shadow: rgb(42, 153, 159) 0px 0px 5px 2px;
-    color: rgb(255, 255, 255);
+    background-color:${({theme}) => theme.hover}; 
+    box-shadow: ${({theme}) => theme.shadow} 0px 0px 5px 2px;
+    color: ${({theme}) => theme.nav}; 
   }
 
 `

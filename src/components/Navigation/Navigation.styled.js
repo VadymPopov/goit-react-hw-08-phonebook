@@ -7,12 +7,12 @@ export const Link = styled(NavLink)`
   text-transform: uppercase;
   padding: 10px 16px;
   font-weight: 700;
-  color: #2a363b;
+  color: ${({theme}) => theme.text};
   
   
   &.active{
-    color: #fff;
-    background-color: rgb(66, 135, 245);
+    color: ${({theme}) => theme.body};
+    background-color: ${({theme}) => theme.main};;
     border-radius: 8px;
   }
 `;

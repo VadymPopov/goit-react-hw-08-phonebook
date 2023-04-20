@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Notify } from "notiflix";
-import { FormWrapper, InputContainer, Input, ErrorText, Button, ButtonContainer } from "./ModalForm.styled";
+import { FormWrapper, InputContainer, Input, ErrorText, Button } from "../ContactForm/ContactForm.styled";
+import {ButtonContainer} from './ModalForm.styled';
 
 import {useDispatch } from "react-redux";
 import { editContact } from "redux/contacts/operations";

@@ -5,10 +5,10 @@ import { Suspense } from 'react';
 import { LayoutContainer, Section } from './Layout.styled';
 import { GlobalStyle } from "../GlobalStyles";
 
-export const Layout = () => {
+export const Layout = ({toggleTheme,isDarkTheme}) => {
     return (
         <LayoutContainer>
-            <AppBar />
+            <AppBar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
             <main>
               <Section>
                 <Suspense fallback={null}>

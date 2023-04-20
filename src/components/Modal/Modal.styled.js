@@ -22,14 +22,14 @@ export const Content = styled.div`
    max-width: 350px;
    width: 100%;
    padding: 12px;
-   background-color: #fff;
+   background-color: ${({theme}) => theme.nav};
    border-radius: 3px;
    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
    0px 1px 1px 0ModalTitlepx rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 `;
 
 export const ModalTitle = styled.h3`
-   color: rgb(66, 135, 245);
+   color: ${({theme}) => theme.main};
    margin-bottom: 10px;
    font-size: 24px;
 `;
