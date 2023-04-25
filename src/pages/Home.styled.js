@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {MdContactPhone} from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
 
 export const Icon = styled(MdContactPhone)`
     height: 160px;
@@ -20,7 +21,7 @@ export const Text = styled.p`
     color: ${({theme}) => theme.text};
 `;
 
-export const StartLink = styled.a`
+export const StartLink = styled(NavLink)`
     border: 0 solid transparent;
     border-radius: 4px;
     color: ${({theme}) => theme.body}; 

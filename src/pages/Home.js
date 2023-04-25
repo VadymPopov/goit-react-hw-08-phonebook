@@ -8,7 +8,7 @@ export default function Home() {
           Phonebook
         </Title>
         <Text>React app that helps you store and manage your contacts</Text>
-        <StartLink href="/register">Let's start!</StartLink>
+        <StartLink to="/register">Let's start!</StartLink>
        </>
     );
   }
